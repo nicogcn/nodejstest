@@ -4,6 +4,12 @@ var router = express.Router();
 var controller = require("./controller");
 //Declaro las acciones para el modulo 
 
+router.use(function (req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
+
+
 //Traer todos -getall
 //Aqui '/' significa persons
 router.get('/',controller.getAllPersons);
